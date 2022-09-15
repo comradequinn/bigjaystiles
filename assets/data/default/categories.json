@@ -1,0 +1,38 @@
+[
+    {
+      "id": 0,
+      "title": "Unassigned",
+      "hidden": true,
+      "icon": 58125
+    },
+    {
+      "id": 1,
+      "title": "Food",
+      "hidden": false,
+      "icon": 57808
+    },
+    {
+      "id": 2,
+      "title": "People",
+      "hidden": false,
+      "icon": 58513
+    },
+    {
+      "id": 3,
+      "title": "Places",
+      "hidden": false,
+      "icon": 984966
+    },
+    {
+      "id": 4,
+      "title": "TV",
+      "hidden": false,
+      "icon": 59015
+    },
+    {
+      "id": 5,
+      "title": "Words",
+      "hidden": false,
+      "icon": 58845
+    }
+  ]
