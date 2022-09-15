@@ -23,10 +23,12 @@ run-appstore: set-assets-appstore
 .PHONY: build-home
 build-home: set-assets-home
 	@flutter build apk --split-per-abi
+	@flutter build appbundle
 
 .PHONY: build-appstore
 build-appstore: set-assets-appstore
 	@flutter build apk --split-per-abi
+	@flutter build appbundle
 
 .PHONY: profile
 profile:

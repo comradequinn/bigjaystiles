@@ -1,5 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/matt/workspace/github/bigjaystiles'
-flutter test lib
+rm -f ./assets/images/default
+ln -s default-home ./assets/images/default
 make: Leaving directory '/home/matt/workspace/github/bigjaystiles'
  
