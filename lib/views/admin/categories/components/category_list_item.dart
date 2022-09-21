@@ -4,8 +4,8 @@ import 'package:qinject/qinject.dart';
 import '../../../../tiles/db/tile_db.dart';
 import '../../../../tiles/model.dart';
 import '../../../../tiles/tile_controller.dart';
-import '../../../components/icon_picker/icon_picker.dart';
 import 'delete_category_dialog.dart';
+import 'icon_picker/icon_picker.dart';
 
 class CategoryListItem extends StatefulWidget {
   final Category _category;

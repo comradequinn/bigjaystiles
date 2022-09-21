@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:qinject/qinject.dart';
 import 'package:record/record.dart';
 
+import 'recording_indicator.dart';
+
 enum ImageSourceType { gallery, camera }
 
 class NewAudioDialog extends StatefulWidget {
@@ -35,9 +37,17 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
   void dispose() async {
     super.dispose();
 
+    await endAudio();
+  }
+
+  Future<void> endAudio() async {
+    var stopFuture = _audioPlayer.stop();
+
     if (await widget._audioRecorder.isRecording()) {
       await widget._audioRecorder.stop();
     }
+
+    await stopFuture;
   }
 
   @override
@@ -71,14 +81,12 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
                     width: 200,
                     height: 200,
                     child: Icon(
-                        color: _recording ? Colors.red : null,
+                        color: null,
                         _audioFile == null
-                            ? Icons.warning_outlined
+                            ? Icons.not_interested_rounded
                             : _playing
                                 ? Icons.multitrack_audio
-                                : _recording
-                                    ? Icons.multitrack_audio
-                                    : Icons.play_arrow),
+                                : Icons.play_circle_outlined),
                   ))),
           const SizedBox(height: 20),
           Text(
@@ -87,48 +95,62 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
                   : "Warning: cannot record as microphone access was not granted",
               style: const TextStyle(color: Colors.red)),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            IconButton(
-              icon: Icon(
-                  color: Colors.red, _recording ? Icons.square : Icons.circle),
-              onPressed: () async {
-                if (_playing) return;
+            SizedBox(
+                height: 70,
+                width: 70,
+                child: Center(
+                  child: GestureDetector(
+                      onTap: () async {
+                        if (_playing) return;
 
-                if (!_recording) {
-                  final recordingPermitted =
-                      await widget._audioRecorder.hasPermission();
+                        if (!_recording) {
+                          final recordingPermitted =
+                              await widget._audioRecorder.hasPermission();
 
-                  if ((await widget._audioRecorder.listInputDevices())
-                      .isNotEmpty) {
-                    debugPrint(
-                        "potentially unable to record as audiorecord returns no input devices. this often occurs in an emulator yet recording succeeds");
-                    return;
-                  }
+                          if ((await widget._audioRecorder.listInputDevices())
+                              .isNotEmpty) {
+                            debugPrint(
+                                "potentially unable to record as audiorecord returns no input devices. this often occurs in an emulator yet recording succeeds");
+                            return;
+                          }
 
-                  setState(() => _recordingPermitted = recordingPermitted);
+                          setState(
+                              () => _recordingPermitted = recordingPermitted);
 
-                  await widget._audioRecorder.start();
-                } else {
-                  final audioPath = await widget._audioRecorder.stop();
+                          await widget._audioRecorder.start();
+                        } else {
+                          final audioPath = await widget._audioRecorder.stop();
 
-                  if (audioPath != null) {
-                    _audioFile = File(audioPath);
-                  }
-                }
+                          if (audioPath != null) {
+                            _audioFile = File(audioPath);
+                          }
+                        }
 
-                setState(() => _recording = !_recording);
-              },
-            )
+                        setState(() => _recording = !_recording);
+                      },
+                      child: RecordingIndicator(_recording, 40, 70)),
+                ))
           ])
         ],
       )),
       actions: [
         TextButton(
-            onPressed: () =>
-                Navigator.of(context).pop(widget._initialAudioFile),
+            onPressed: () async {
+              await endAudio();
+
+              if (!mounted) return;
+
+              Navigator.of(context).pop(widget._initialAudioFile);
+            },
             child: const Text('Cancel')),
         TextButton(
-            onPressed: () => Navigator.of(context)
-                .pop(_audioFile ?? widget._initialAudioFile),
+            onPressed: () async {
+              await endAudio();
+
+              if (!mounted) return;
+
+              Navigator.of(context).pop(_audioFile ?? widget._initialAudioFile);
+            },
             child: const Text('OK'))
       ],
     );

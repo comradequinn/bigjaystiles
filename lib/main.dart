@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:bigjaystiles/views/admin/categories/components/icon_picker/icon_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -77,6 +78,7 @@ void main() async {
   Qinject.register((_) => () => AddCategoryDialog(qinjector));
   Qinject.register((_) => (Category c) => DeleteCategoryDialog(c));
   Qinject.register((_) => () => ManageCategoriesHelpDialog(qinjector));
+  Qinject.register((_) => () => IconPicker());
 
   Qinject.register((_) => (
         Iterable<Category> c,

@@ -3,13 +3,15 @@ import 'package:bigjaystiles/tiles/tile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:qinject/qinject.dart';
 
-import '../../../components/icon_picker/icon_picker.dart';
+import 'icon_picker/icon_picker.dart';
 
 class AddCategoryDialog extends StatefulWidget {
   final TileController _tileController;
+  final IconPicker Function() _iconPicker;
 
   AddCategoryDialog(Qinjector qinjector, {Key? key})
       : _tileController = qinjector.use<AddCategoryDialog, TileController>(),
+        _iconPicker = qinjector.use<AddCategoryDialog, IconPicker Function()>(),
         super(key: key);
 
   @override
@@ -35,7 +37,8 @@ class _AddCategoryDialogState extends State<AddCategoryDialog> {
             GestureDetector(
                 onTap: () async {
                   icon = await showDialog<IconData?>(
-                      context: context, builder: (context) => IconPicker());
+                      context: context,
+                      builder: (context) => widget._iconPicker());
 
                   setState(() => iconError = icon == null);
                 },
