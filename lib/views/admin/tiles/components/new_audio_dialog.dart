@@ -54,7 +54,8 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: _recording
-          ? const Text("Recording....", style: TextStyle(color: Colors.red))
+          ? const Text("Recording... tap the timer to stop",
+              style: TextStyle(color: Colors.red))
           : const Text("Assign Audio"),
       content: SingleChildScrollView(
           child: Column(
