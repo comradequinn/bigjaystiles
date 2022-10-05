@@ -134,6 +134,7 @@ class _TileListItemState extends State<TileListItem> {
         onTap: () async {
           final audioFile = await showDialog<File?>(
               context: context,
+              barrierDismissible: false,
               builder: (context) => widget._newAudioDialog(tile.audio));
 
           if (audioFile != null && audioFile != tile.audio) {

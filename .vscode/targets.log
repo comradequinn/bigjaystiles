@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Sep 28 12:23:54 2022
+# Make data base, printed on Wed Oct  5 19:32:52 2022
 
 # Variables
 
@@ -57,7 +57,7 @@ VSCODE_CODE_CACHE_PATH = /home/matt/.config/Code/CachedData/74b1f979648cc44d385a
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.TNJIT1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.PCD6S1
 # default
 .LOADED := 
 # default
@@ -91,13 +91,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 7499
+VSCODE_PID = 4794
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/matts-linux-laptop:@/tmp/.ICE-unix/2211,unix/matts-linux-laptop:/tmp/.ICE-unix/2211
+SESSION_MANAGER = local/matts-linux-laptop:@/tmp/.ICE-unix/2804,unix/matts-linux-laptop:/tmp/.ICE-unix/2804
 # automatic
 *F = $(notdir $*)
 # environment
@@ -141,7 +141,7 @@ SNAP_USER_COMMON = /home/matt/snap/code/common
 # environment
 SNAP = /snap/code/108
 # environment
-INVOCATION_ID = 5461c79bd29e40d59fa17947898389d8
+INVOCATION_ID = 516018f01f66455992aa7f3556a089b7
 # environment
 SNAP_REVISION = 108
 # environment
@@ -169,7 +169,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := set-assets-home
 # environment
-SYSTEMD_EXEC_PID = 2360
+SYSTEMD_EXEC_PID = 2960
 # environment
 DISPLAY = :0
 # environment
@@ -183,15 +183,15 @@ SNAP_DATA = /var/snap/code/108
 # environment
 SNAP_CONTEXT = qAynEm-xr8ex6rV95YEWTHmCuL468qDPFdgnoMAkSt7BL1IaNVC8
 # environment
-MANAGERPID = 2075
+MANAGERPID = 2664
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 7454
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4746
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/matt/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:45367
+JOURNAL_STREAM = 8:46980
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -389,6 +389,6 @@ build-appstore: set-assets-appstore
 # strcache performance: lookups = 89 / hit rate = 58%
 # hash-table stats:
 # Load=37/8192=0%, Rehash=0, Collisions=0/89=0%
-# Finished Make data base on Wed Sep 28 12:23:54 2022
+# Finished Make data base on Wed Oct  5 19:32:52 2022
 
  

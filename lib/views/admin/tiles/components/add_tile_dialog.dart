@@ -91,6 +91,7 @@ class _AddTileDialogState extends State<AddTileDialog> {
                 onTap: () async {
                   _audio = await showDialog<File?>(
                       context: context,
+                      barrierDismissible: false,
                       builder: (context) => widget._newAudioDialog(null));
 
                   setState(() => audioError = _audio == null);

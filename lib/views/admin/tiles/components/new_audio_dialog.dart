@@ -53,41 +53,45 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text("Assign Audio"),
+      title: _recording
+          ? const Text("Recording....", style: TextStyle(color: Colors.red))
+          : const Text("Assign Audio"),
       content: SingleChildScrollView(
           child: Column(
         children: <Widget>[
-          GestureDetector(
-              onTap: () async {
-                final audioFile = _audioFile;
+          _recording
+              ? const SizedBox(width: 400, height: 200)
+              : GestureDetector(
+                  onTap: () async {
+                    final audioFile = _audioFile;
 
-                if (audioFile == null || _playing || _recording) return;
+                    if (audioFile == null || _playing || _recording) return;
 
-                setState(() => _playing = true);
+                    setState(() => _playing = true);
 
-                final playComplete = _audioPlayer.onPlayerComplete.first;
+                    final playComplete = _audioPlayer.onPlayerComplete.first;
 
-                await _audioPlayer.play(DeviceFileSource(audioFile.path));
+                    await _audioPlayer.play(DeviceFileSource(audioFile.path));
 
-                await playComplete;
+                    await playComplete;
 
-                setState(() => _playing = false);
-              },
-              child: SizedBox(
-                  width: 400,
-                  height: 200,
-                  child: Container(
-                    decoration: const BoxDecoration(color: Colors.grey),
-                    width: 200,
-                    height: 200,
-                    child: Icon(
-                        color: null,
-                        _audioFile == null
-                            ? Icons.not_interested_rounded
-                            : _playing
-                                ? Icons.multitrack_audio
-                                : Icons.play_circle_outlined),
-                  ))),
+                    setState(() => _playing = false);
+                  },
+                  child: SizedBox(
+                      width: 400,
+                      height: 200,
+                      child: Container(
+                        decoration: const BoxDecoration(color: Colors.grey),
+                        width: 200,
+                        height: 200,
+                        child: Icon(
+                            color: null,
+                            _audioFile == null
+                                ? Icons.not_interested_rounded
+                                : _playing
+                                    ? Icons.multitrack_audio
+                                    : Icons.play_circle_outlined),
+                      ))),
           const SizedBox(height: 20),
           Text(
               _recordingPermitted
@@ -133,26 +137,29 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
           ])
         ],
       )),
-      actions: [
-        TextButton(
-            onPressed: () async {
-              await endAudio();
+      actions: _recording
+          ? [const SizedBox(height: 46)]
+          : [
+              TextButton(
+                  onPressed: () async {
+                    await endAudio();
 
-              if (!mounted) return;
+                    if (!mounted) return;
 
-              Navigator.of(context).pop(widget._initialAudioFile);
-            },
-            child: const Text('Cancel')),
-        TextButton(
-            onPressed: () async {
-              await endAudio();
+                    Navigator.of(context).pop(widget._initialAudioFile);
+                  },
+                  child: const Text('Cancel')),
+              TextButton(
+                  onPressed: () async {
+                    await endAudio();
 
-              if (!mounted) return;
+                    if (!mounted) return;
 
-              Navigator.of(context).pop(_audioFile ?? widget._initialAudioFile);
-            },
-            child: const Text('OK'))
-      ],
+                    Navigator.of(context)
+                        .pop(_audioFile ?? widget._initialAudioFile);
+                  },
+                  child: const Text('Save'))
+            ],
     );
   }
 }
