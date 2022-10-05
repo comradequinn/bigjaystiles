@@ -60,7 +60,12 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
           child: Column(
         children: <Widget>[
           _recording
-              ? const SizedBox(width: 400, height: 200)
+              ? const SizedBox(
+                  width: 400,
+                  height: 200,
+                  child: Center(
+                      child: Icon(Icons.mic, color: Colors.red, size: 150)),
+                )
               : GestureDetector(
                   onTap: () async {
                     final audioFile = _audioFile;
@@ -80,18 +85,20 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
                   child: SizedBox(
                       width: 400,
                       height: 200,
-                      child: Container(
-                        decoration: const BoxDecoration(color: Colors.grey),
-                        width: 200,
-                        height: 200,
-                        child: Icon(
-                            color: null,
-                            _audioFile == null
-                                ? Icons.not_interested_rounded
-                                : _playing
-                                    ? Icons.multitrack_audio
-                                    : Icons.play_circle_outlined),
-                      ))),
+                      child: _audioFile == null
+                          ? null
+                          : Container(
+                              decoration:
+                                  const BoxDecoration(color: Colors.grey),
+                              width: 200,
+                              height: 200,
+                              child: Icon(
+                                  color: Colors.black54,
+                                  size: 150,
+                                  _playing
+                                      ? Icons.multitrack_audio
+                                      : Icons.play_circle_outlined),
+                            ))),
           const SizedBox(height: 20),
           Text(
               _recordingPermitted
@@ -149,16 +156,18 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
                     Navigator.of(context).pop(widget._initialAudioFile);
                   },
                   child: const Text('Cancel')),
-              TextButton(
-                  onPressed: () async {
-                    await endAudio();
+              widget._initialAudioFile == _audioFile
+                  ? const SizedBox()
+                  : TextButton(
+                      onPressed: () async {
+                        await endAudio();
 
-                    if (!mounted) return;
+                        if (!mounted) return;
 
-                    Navigator.of(context)
-                        .pop(_audioFile ?? widget._initialAudioFile);
-                  },
-                  child: const Text('Save'))
+                        Navigator.of(context)
+                            .pop(_audioFile ?? widget._initialAudioFile);
+                      },
+                      child: const Text('Save'))
             ],
     );
   }
