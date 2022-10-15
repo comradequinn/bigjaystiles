@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Oct  5 19:32:52 2022
+# Make data base, printed on Sat Oct 15 12:26:37 2022
 
 # Variables
 
@@ -35,7 +33,7 @@ QT_ACCESSIBILITY = 1
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/108/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/111/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.20.2
 # environment
@@ -53,11 +51,11 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/matt/.config/Code/CachedData/74b1f979648cc44d385a2286793c226e611f59e7
+VSCODE_CODE_CACHE_PATH = /home/matt/.config/Code/CachedData/d045a5eda657f4d7b676dedbfa7aab8207f8a075
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.PCD6S1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.PIV7T1
 # default
 .LOADED := 
 # default
@@ -91,13 +89,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 4794
+VSCODE_PID = 3723
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/matts-linux-laptop:@/tmp/.ICE-unix/2804,unix/matts-linux-laptop:/tmp/.ICE-unix/2804
+SESSION_MANAGER = local/matts-linux-laptop:@/tmp/.ICE-unix/2180,unix/matts-linux-laptop:/tmp/.ICE-unix/2180
 # automatic
 *F = $(notdir $*)
 # environment
@@ -139,11 +137,11 @@ LANGUAGE = en_GB:en
 # environment
 SNAP_USER_COMMON = /home/matt/snap/code/common
 # environment
-SNAP = /snap/code/108
+SNAP = /snap/code/111
 # environment
-INVOCATION_ID = 516018f01f66455992aa7f3556a089b7
+INVOCATION_ID = 3ceb269e2ec549d9bbd3b4af856a5773
 # environment
-SNAP_REVISION = 108
+SNAP_REVISION = 111
 # environment
 SNAP_REAL_HOME = /home/matt
 # environment
@@ -169,7 +167,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := set-assets-home
 # environment
-SYSTEMD_EXEC_PID = 2960
+SYSTEMD_EXEC_PID = 2331
 # environment
 DISPLAY = :0
 # environment
@@ -179,19 +177,19 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-SNAP_DATA = /var/snap/code/108
+SNAP_DATA = /var/snap/code/111
 # environment
 SNAP_CONTEXT = qAynEm-xr8ex6rV95YEWTHmCuL468qDPFdgnoMAkSt7BL1IaNVC8
 # environment
-MANAGERPID = 2664
+MANAGERPID = 2044
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4746
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3674
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/matt/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:46980
+JOURNAL_STREAM = 8:42424
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -203,11 +201,11 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-ec1103ee-1.71.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-ec1103ee-1.72.2-main.sock
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/108/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/111/usr/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # default
@@ -215,7 +213,7 @@ IM_CONFIG_PHASE = 1
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = 74b1f979
+SNAP_VERSION = d045a5ed
 # default
 SUFFIXES := 
 # environment
@@ -229,11 +227,11 @@ CLOUDSDK_METRICS_ENVIRONMENT = cloudcode.vscode
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/matt/snap/code/108
+SNAP_USER_DATA = /home/matt/snap/code/111
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-DOTNET_ROOT = /usr/lib/dotnet/dotnet6-6.0.109
+DOTNET_ROOT = /usr/lib/dotnet/dotnet6-6.0.110
 # environment
 GDMSESSION = ubuntu
 # environment
@@ -281,6 +279,8 @@ Makefile:
 #  Successfully updated.
 
  
+make: *** No rule to make target 'all'.  Stop.
+
 uninstall:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -389,6 +389,6 @@ build-appstore: set-assets-appstore
 # strcache performance: lookups = 89 / hit rate = 58%
 # hash-table stats:
 # Load=37/8192=0%, Rehash=0, Collisions=0/89=0%
-# Finished Make data base on Wed Oct  5 19:32:52 2022
+# Finished Make data base on Sat Oct 15 12:26:37 2022
 
  

@@ -55,7 +55,8 @@ class _RecordingIndicatorState extends State<RecordingIndicator> {
           width: widget._fromSize,
           decoration: BoxDecoration(
               color: Colors.red,
-              borderRadius: BorderRadius.circular(widget._fromSize)));
+              borderRadius: BorderRadius.circular(widget._fromSize)),
+          child: const Icon(Icons.mic, color: Colors.white));
     }
   }
 }

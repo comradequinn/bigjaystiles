@@ -39,7 +39,7 @@ class _TileListItemState extends State<TileListItem> {
 
   var selected = false;
 
-  onTap() async {
+  onTap(TapDownDetails tdd) async {
     setState(() => selected = true);
 
     final playComplete = TileListItem._audioPlayer.onPlayerComplete.first;
@@ -55,7 +55,7 @@ class _TileListItemState extends State<TileListItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () async => onTap(),
+        onTapDown: onTap,
         child: SizedBox(
             height: widget.height,
             width: widget.width,

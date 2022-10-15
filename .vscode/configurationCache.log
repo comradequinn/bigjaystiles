@@ -1,1 +1,1 @@
-{"buildTargets":["build-appstore","build-home","icons","install","profile","run-appstore","run-home","set-assets-appstore","set-assets-home","test","uninstall"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["build-appstore","build-home","icons","install","make","profile","run-appstore","run-home","set-assets-appstore","set-assets-home","test","uninstall"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

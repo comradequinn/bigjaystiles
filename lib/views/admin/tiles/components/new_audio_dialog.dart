@@ -54,8 +54,7 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: _recording
-          ? const Text("Recording... tap the timer to stop",
-              style: TextStyle(color: Colors.red))
+          ? const Text("Recording...", style: TextStyle(color: Colors.red))
           : const Text("Assign Audio"),
       content: SingleChildScrollView(
           child: Column(
@@ -65,7 +64,7 @@ class _NewAudioDialogState extends State<NewAudioDialog> {
                   width: 400,
                   height: 200,
                   child: Center(
-                      child: Icon(Icons.mic, color: Colors.red, size: 150)),
+                      child: Icon(Icons.mic, color: Colors.grey, size: 150)),
                 )
               : GestureDetector(
                   onTap: () async {
