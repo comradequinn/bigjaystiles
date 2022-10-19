@@ -34,7 +34,7 @@ class _TileListItemState extends State<TileListItem> {
             borderRadius: BorderRadius.circular(20.0),
             side: const BorderSide(
               width: 2.5,
-              color: Colors.black12,
+              color: Colors.lightBlue,
             ));
 
   var selected = false;
